@@ -1,0 +1,16 @@
+.submit-button {
+  width: 500px;
+}
+
+span {
+  margin-top: 2rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+mat-form-field {
+  width: 500px;
+}

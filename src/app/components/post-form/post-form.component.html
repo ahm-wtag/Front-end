@@ -1,0 +1,21 @@
+<div class="form-container">
+  
+  <form (ngSubmit)="onSubmit()" [formGroup]="postForm">
+
+    <mat-form-field appearance="fill">
+      <mat-label>Title</mat-label>
+      <input matInput placeholder="Title" formControlName="title" required/>
+      <mat-error>Title is required</mat-error>
+    </mat-form-field>
+  
+  
+    <mat-form-field appearance="fill">
+      <mat-label>Body</mat-label>
+      <textarea matInput placeholder="Post body" formControlName="body"></textarea>
+    </mat-form-field>
+    
+    <button mat-raised-button color="primary" type="submit" class="submit-button">Submit</button>
+    
+  </form>
+
+</div>

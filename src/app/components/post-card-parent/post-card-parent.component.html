@@ -1,0 +1,13 @@
+<div>
+  <div class="container">
+    
+    <app-post-card
+      *ngFor="let post of _posts as _posts"
+      [post]="post"
+      [enableActions]="_enableActions"
+      (onDelete)="onDelete(post)"
+    >
+    </app-post-card>
+  </div>
+</div>
+

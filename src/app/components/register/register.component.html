@@ -1,0 +1,62 @@
+<div class="form-container">
+  
+  <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+
+    <span>
+      <p class="text-danger" [class]="showErrorMessage ? 'visible': 'hidden'">{{errorMessage}}</p>
+    </span>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Handle</mat-label>
+      <input matInput placeholder="handle" formControlName="handle" required/>
+      <mat-error>Username is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput placeholder="email" formControlName="email" required/>
+      <mat-error>Invalid email</mat-error>
+    </mat-form-field>
+
+    <div class="password-fields" formGroupName="passwords">
+
+      <mat-form-field appearance="fill">
+        <mat-label>Password</mat-label>
+        <input matInput placeholder="Password" [type]="hidePassword ? 'password' : 'text'" formControlName="password" required>
+        <mat-icon matSuffix (click)="hidePassword = !hidePassword">{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+        <mat-error>Password is required</mat-error>
+      </mat-form-field>
+      
+      <br>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Confirm Password</mat-label>
+        <input matInput placeholder="Confirm Password" [type]="hideConfirmPassword ? 'password' : 'text'" formControlName="confirmPassword" required [errorStateMatcher]="validParentMatcher">
+        <mat-icon matSuffix (click)="hideConfirmPassword = !hideConfirmPassword">{{hideConfirmPassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+        <mat-error>Passwords do not match</mat-error>
+      </mat-form-field>
+      
+    </div>
+
+    <mat-form-field appearance="fill">
+      <mat-label>First Name</mat-label>
+      <input matInput placeholder="First Name" formControlName="firstName" required>
+      <mat-error>First name is required</mat-error>
+    </mat-form-field>
+
+
+    <mat-form-field appearance="fill">
+      <mat-label>Last Name</mat-label>
+      <input matInput placeholder="First Name" formControlName="lastName">
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit" class="register-button" [disabled]="userForm.invalid">Register</button>
+
+    
+    <span>
+      Already Registered?&nbsp;
+      <a routerLink="/login">Login</a>
+    </span>
+
+  </form>
+</div>

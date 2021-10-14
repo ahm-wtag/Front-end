@@ -1,0 +1,23 @@
+<mat-toolbar color="primary">
+  <span>Lekha-Likhi</span>
+  <span class="brand-spacer"></span>
+  <div *ngIf="loggedIn" class="actions" (click)="onProfile()">
+    <button mat-stroked-button class="user">{{userDetails?.firstName | uppercase }}</button>
+  </div>
+  
+  <a routerLink="/home" class="actions">
+    <mat-icon>home</mat-icon>
+  </a>
+  <a *ngIf="loggedIn" routerLink="/posts/create" class="actions">
+    <mat-icon>add_circle</mat-icon>
+  </a>
+  <a *ngIf="!loggedIn" routerLink="/login" class="actions">
+    <mat-icon>login</mat-icon>
+  </a>
+  <button mat-icon-button *ngIf="loggedIn" (click)="onSettings()" class="actions">
+    <mat-icon class="logout">settings</mat-icon>
+  </button>
+  <button mat-icon-button *ngIf="loggedIn" (click)="onLogout()" class="actions">
+    <mat-icon class="logout">logout</mat-icon>
+  </button>
+</mat-toolbar>

@@ -1,0 +1,28 @@
+<div class="form-container">
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+    <span>
+      <p class="text-danger" [class]="showErrorMessage ? 'visible': 'hidden'">Invalid Credentials</p>
+    </span>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Handle</mat-label>
+      <input matInput placeholder="handle" formControlName="handle"/>
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill">
+      <input matInput placeholder="Password" [type]="hidePassword ? 'password' : 'text'" formControlName="password" required>
+      <mat-icon matSuffix (click)="hidePassword = !hidePassword">{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </mat-form-field>
+
+    
+    <button mat-raised-button color="primary" type="submit" class="login-button">Login</button>
+
+    <span>
+      New here?&nbsp;
+      <a routerLink="/register">Sign Up</a>
+    </span>
+
+  </form>
+  
+</div>

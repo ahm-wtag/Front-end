@@ -1,0 +1,40 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="userForm">
+
+
+  <span>
+    <p class="text-danger" [class]="showErrorMessage ? 'visible': 'hidden'">{{errorMessage}}</p>
+  </span>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Handle</mat-label>
+    <input matInput placeholder="handle" formControlName="handle" required/>
+    <mat-error>Username is required</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Email</mat-label>
+    <input matInput placeholder="email" formControlName="email" required/>
+    <mat-error>Invalid email</mat-error>
+  </mat-form-field>
+
+  
+
+  <mat-form-field appearance="fill">
+    <mat-label>First Name</mat-label>
+    <input matInput placeholder="First Name" formControlName="firstName" required>
+    <mat-error>First name is required</mat-error>
+  </mat-form-field>
+
+
+  <mat-form-field appearance="fill">
+    <mat-label>Last Name</mat-label>
+    <input matInput placeholder="First Name" formControlName="lastName">
+  </mat-form-field>
+
+
+  
+
+  <button mat-raised-button color="primary" type="submit" class="register-button" [disabled]="userForm.invalid">Update</button>
+
+
+</form>

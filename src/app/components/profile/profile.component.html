@@ -1,0 +1,11 @@
+<mat-card color="primary">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>{{_$user?.firstName + ' ' + _$user?.lastName}}</mat-card-title>
+    <mat-card-subtitle>{{_$user?.handle}}</mat-card-subtitle>
+  </mat-card-header>
+</mat-card>
+
+
+<app-post-card-parent *ngIf="_$user?.id as number" [user]="_$user" [parentType]="_postCardParentType">
+</app-post-card-parent>

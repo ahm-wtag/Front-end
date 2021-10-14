@@ -1,0 +1,25 @@
+<mat-card [class.mat-elevation-z8]="true" *ngIf="!deleted">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>{{post.title}}</mat-card-title>
+    <mat-card-subtitle>{{post.customerId}}</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image src="../../../assets/images/blog-post.svg" alt="Photo of a Shiba Inu">
+  <mat-card-content>
+    <p>
+      {{post.body}}
+    </p>
+  </mat-card-content>
+  <mat-card-actions align="end">
+    <button mat-icon-button *ngIf="enableActions" (click)="onEditAction()">
+      <mat-icon>edit</mat-icon>
+    </button>
+    <button mat-icon-button *ngIf="enableActions" (click)="onDeleteAction()"> 
+      <mat-icon>delete</mat-icon>
+    </button>
+    <button mat-icon-button (click)="onReadMore()">
+      <mat-icon>read_more</mat-icon>
+    </button>
+  </mat-card-actions>
+  <mat-card-footer>  </mat-card-footer>
+</mat-card>
